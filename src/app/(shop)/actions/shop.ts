@@ -944,7 +944,6 @@ export async function updateMyProfileAction(input: {
  {
  id: user.id,
  ...patch,
- role: "customer",
  } as never,
  { onConflict: "id" },
  )
@@ -958,7 +957,6 @@ export async function updateMyProfileAction(input: {
  const { error: sErr } = await service.from("profiles").upsert({
  id: user.id,
  ...patch,
- role: "customer",
  } as never);
  if (sErr) throw sErr;
  } catch (se) {
