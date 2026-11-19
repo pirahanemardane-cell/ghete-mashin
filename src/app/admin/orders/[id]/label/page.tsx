@@ -73,7 +73,7 @@ export default function OrderWaybillLabelPage() {
  <div className="flex flex-wrap items-start justify-between gap-3 border-b pb-3">
  <div>
  <h1 className="text-xl font-bold">برچسب ارسال — قطعه ماشین</h1>
- <p className="text-muted-foreground text-xs">ghatehmashin.ir</p>
+ <p className="text-muted-foreground text-xs">ghetemashin.ir</p>
  </div>
  <div className="text-left font-mono text-xs" dir="ltr">
  <div>Order: {order.id}</div>

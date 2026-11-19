@@ -1,6 +1,6 @@
 /**
  * ایمیل تراکنشی با Resend — fail-soft اگر کلید نباشد
- * env: RESEND_API_KEY, EMAIL_FROM (مثلاً فروشگاه <noreply@ghatehmashin.ir>)
+ * env: RESEND_API_KEY, EMAIL_FROM (مثلاً فروشگاه <noreply@ghetemashin.ir>)
  */
 export type EmailResult =
  | { ok: true; id?: string }
@@ -80,7 +80,7 @@ export async function emailOrderPlaced(opts: {
  return sendTransactionalEmail({
  to: opts.to,
  subject: `سفارش ${oid} ثبت شد — قطعه ماشین`,
- html: `<p>${name} عزیز،</p><p>سفارش <strong>${oid}</strong> با موفقیت ثبت شد.${amt ? ` مبلغ: <strong>${amt}</strong> تومان.` : ""}</p><p><a href="https://ghatehmashin.ir/داشبورد?tab=orders">پیگیری سفارش</a></p>`,
+ html: `<p>${name} عزیز،</p><p>سفارش <strong>${oid}</strong> با موفقیت ثبت شد.${amt ? ` مبلغ: <strong>${amt}</strong> تومان.` : ""}</p><p><a href="https://ghetemashin.ir/داشبورد?tab=orders">پیگیری سفارش</a></p>`,
  text: `${name} عزیز، سفارش ${oid} ثبت شد.${amt ? ` مبلغ: ${amt} تومان.` : ""}`,
  });
 }
@@ -132,9 +132,9 @@ export async function emailStockBackInStock(opts: {
   ? escapeHtml(
       opts.link.startsWith("http")
         ? opts.link
-        : `https://ghatehmashin.ir${opts.link.startsWith("/") ? "" : "/"}${opts.link}`,
+        : `https://ghetemashin.ir${opts.link.startsWith("/") ? "" : "/"}${opts.link}`,
     )
-  : "https://ghatehmashin.ir/محصولات";
+  : "https://ghetemashin.ir/محصولات";
  return sendTransactionalEmail({
  to: opts.to,
  subject: `موجود شد: ${opts.productLabel} — قطعه ماشین`,
@@ -157,9 +157,9 @@ export async function emailPriceAlert(opts: {
   ? escapeHtml(
       opts.link.startsWith("http")
         ? opts.link
-        : `https://ghatehmashin.ir${opts.link.startsWith("/") ? "" : "/"}${opts.link}`,
+        : `https://ghetemashin.ir${opts.link.startsWith("/") ? "" : "/"}${opts.link}`,
     )
-  : "https://ghatehmashin.ir/محصولات";
+  : "https://ghetemashin.ir/محصولات";
  return sendTransactionalEmail({
  to: opts.to,
  subject: `${kindLabel} ${opts.productLabel} — قطعه ماشین`,

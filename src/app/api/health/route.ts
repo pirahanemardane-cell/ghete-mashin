@@ -52,7 +52,7 @@ export async function GET(request: NextRequest) {
 
  const body = {
  ok: supabase !== "error",
- service: "shadjewel",
+ service: "ghete-mashin",
  requestId,
  ts: new Date().toISOString(),
  latencyMs: Date.now() - started,

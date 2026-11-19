@@ -199,9 +199,9 @@ export default async function BrandListingPage({ params, searchParams }: Props) 
  logo: (brand as { logo_url?: string | null }).logo_url ?? null,
  }),
  breadcrumbSchema([
- { name: "خانه", url: ((process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "")) + "/" },
- { name: "برندها", url: ((process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "")) + "/برندها" },
- { name: brand.name, url: ((process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "")) + "/" + encodeURIComponent(slug) },
+ { name: "خانه", url: ((process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "")) + "/" },
+ { name: "برندها", url: ((process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "")) + "/برندها" },
+ { name: brand.name, url: ((process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "")) + "/" + encodeURIComponent(slug) },
  ]),
  ]}
  />

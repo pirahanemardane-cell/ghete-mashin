@@ -72,7 +72,7 @@ export function SeoAnalysisPanel({
  body = "",
  imageUrl = "",
  siteName = DEFAULT_SITE,
- siteUrl = "https://ghatehmashin.ir",
+ siteUrl = "https://ghetemashin.ir",
  forceNoindex = false,
  value,
  onChange,

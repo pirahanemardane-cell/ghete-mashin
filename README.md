@@ -1,29 +1,24 @@
-# اکسسوری شاد | shadjewel.ir
+# قطعه ماشین | ghetemashin.ir
 
-فروشگاه تخصصی اکسسوری دست ساز – ساخته‌شده با Next.js 15 + Supabase + Vercel + Cloudflare + R2
+فروشگاه آنلاین قطعات یدکی خودرو — Next.js + Supabase + Vercel + Cloudflare + R2 (Sharp در اپ)
 
 ## تکنولوژی‌ها
-- **Frontend**: Next.js 15 (App Router) + TypeScript + Tailwind CSS 4 + shadcn/ui
-- **Backend**: Supabase (Auth + Database + Realtime + Storage)
+- **Frontend**: Next.js (App Router) + TypeScript + Tailwind CSS 4 + shadcn/ui
+- **Backend**: Supabase (Auth + Database + Realtime)
 - **Hosting**: Vercel (region: fra1)
-- **CDN & Security**: Cloudflare
-- **Files & Backup**: Cloudflare R2
+- **CDN & DNS**: Cloudflare
+- **Images & Backup**: Cloudflare R2 + Sharp (`src/lib/process-product-image.ts`)
 - **Monitoring**: Sentry
 - **Rate Limit**: Upstash Redis
 
 ## راه‌اندازی محلی
 
-\`\`\`bash
-# نصب وابستگی‌ها
+```bash
 npm install
-
-# کپی فایل محیطی
 cp .env.example .env.local
-# سپس مقادیر را پر کنید
-
-# اجرای توسعه
+# پر کردن مقادیر — لیست کامل در .env.example
 npm run dev
-\`\`\`
+```
 
 سایت روی http://localhost:3000 بالا می‌آید.
 
@@ -32,19 +27,17 @@ npm run dev
 - `src/app/admin` → پنل ادمین
 - `src/app/api` → APIها
 - `supabase/migrations` → تمام تغییرات دیتابیس
+- `docs/GO-LIVE.md` → چک‌لیست لانچ دامنه
 - `docs/SECURITY.md` → راهنمای امنیت
 
 ## استقرار
-هر push روی branch اصلی به‌صورت خودکار روی Vercel دیپلوی می‌شود.
+پس از اتصال ریپو به Vercel، push روی `main` دیپلوی Production می‌کند.  
+جزئیات: [docs/00-DEPLOYMENT-STRATEGY.md](docs/00-DEPLOYMENT-STRATEGY.md) · [docs/GO-LIVE.md](docs/GO-LIVE.md)
 
-## وضعیت فعلی (۲۵ اکتبر ۲۰۲۶)
-
-- Production: https://shadjewel.ir — از `main` روی Vercel
-- QA Formal: unit + security-smoke + smoke دستی + QA دستی کوتاه → **PASS** (2026-10-25)
-- Backup: cron روزانه + تأیید دستی curl → فایل R2 `backups/db/…` (2026-10-25)
-- پیش‌انتشار: `noindex` تا تصمیم مالک برای ایندکس
-- **موکول عمدی مالک:** درگاه پرداخت production · ENV پیامک production
-- چک‌لیست‌ها: [QA](docs/30-QA-CHECKLIST.md) · [Release/Ops](docs/31-RELEASE-OPS-CHECKLIST.md)
+## وضعیت
+- دامنه هدف: https://ghetemashin.ir
+- پیش‌انتشار: `NEXT_PUBLIC_ALLOW_INDEX=false` تا آماده‌شدن کاتالوگ
+- چک‌لیست‌ها: [Go-live](docs/GO-LIVE.md) · [QA](docs/30-QA-CHECKLIST.md) · [Release/Ops](docs/31-RELEASE-OPS-CHECKLIST.md)
 
 ## تماس
 برای سوالات فنی به صاحب پروژه مراجعه کنید.

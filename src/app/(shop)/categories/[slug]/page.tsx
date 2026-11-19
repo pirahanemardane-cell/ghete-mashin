@@ -200,7 +200,7 @@ export default async function CategoryListingPage({
  }
 
  const { data: products, total, page, totalPages } = result.data;
- const siteBase = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(
+ const siteBase = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(
  /\/$/,
  "",
  );
