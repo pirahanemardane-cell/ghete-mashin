@@ -28,6 +28,7 @@ npm run dev
 - `src/app/api` → APIها
 - `supabase/migrations` → تمام تغییرات دیتابیس
 - `docs/GO-LIVE.md` → چک‌لیست لانچ دامنه
+- `docs/FAILOVER-ARVAN.md` → failover خودکار Cloudflare ↔ ابرآروان
 - `docs/SECURITY.md` → راهنمای امنیت
 
 ## استقرار

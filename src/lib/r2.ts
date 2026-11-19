@@ -1,6 +1,7 @@
 import {
  S3Client,
  PutObjectCommand,
+ GetObjectCommand,
  DeleteObjectCommand,
  ListObjectsV2Command,
 } from "@aws-sdk/client-s3";
@@ -60,6 +61,24 @@ export async function r2DeleteObject(key: string) {
  Key: key,
  }),
  );
+}
+
+export async function r2GetObjectText(key: string): Promise<string | null> {
+ const client = getR2Client();
+ try {
+  const res = await client.send(
+   new GetObjectCommand({
+    Bucket: getR2Bucket(),
+    Key: key,
+   }),
+  );
+  if (!res.Body) return null;
+  return await res.Body.transformToString();
+ } catch (e) {
+  const name = e && typeof e === "object" && "name" in e ? String((e as { name: string }).name) : "";
+  if (name === "NoSuchKey" || name === "NotFound") return null;
+  throw e;
+ }
 }
 
 
