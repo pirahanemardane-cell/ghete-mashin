@@ -46,11 +46,15 @@ export async function adminUpdateUserRoleAction(userId: string, role: Role) {
  if (!["customer", "admin", "staff"].includes(role)) {
  return { ok: false as const, error: "bad_role" };
  }
- // جلوگیری از حذف نقش خودت از admin (اختیاری ولی ایمن)
- if (userId === gate.userId && role !== "admin") {
- return { ok: false as const, error: "cannot_demote_self" };
+ const { canAdminChangeUserRole } = await import(
+ "@/lib/security/profile-self-update"
+ );
+ // Never allow self-service / self-targeted role changes (escalation or demotion).
+ if (!canAdminChangeUserRole(gate.userId, userId)) {
+ return { ok: false as const, error: "cannot_change_own_role" };
  }
  try {
+ // gate.supabase is the service client (requireAdmin) — only privileged server path.
  const { error } = await gate.supabase
  .from("profiles")
  .update({ role })
