@@ -112,10 +112,10 @@ const nextConfig: NextConfig = {
  "default-src 'self'",
  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://va.vercel-scripts.com",
  "style-src 'self' 'unsafe-inline'",
- "img-src 'self' data: blob: https://media.shadjewel.ir https://*.supabase.co https://*.r2.dev https://placehold.co",
+ "img-src 'self' data: blob: https://media.ghetemashin.ir https://*.supabase.co https://*.r2.dev https://*.arvanstorage.ir https://placehold.co",
  "font-src 'self' data:",
  "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://rest.payamak-panel.com https://va.vercel-scripts.com https://vitals.vercel-insights.com",
- "media-src 'self' https://media.shadjewel.ir",
+ "media-src 'self' https://media.ghetemashin.ir https://*.arvanstorage.ir",
  "object-src 'none'",
  "base-uri 'self'",
  "form-action 'self'",
@@ -233,7 +233,7 @@ const nextConfig: NextConfig = {
    },
    {
     protocol: "https",
-    hostname: "media.shadjewel.ir",
+    hostname: "media.ghetemashin.ir",
    },
    {
     protocol: "https",

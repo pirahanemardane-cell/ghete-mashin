@@ -22,7 +22,7 @@
  - `SUPABASE_SERVICE_ROLE_KEY`
  - `UPSTASH_REDIS_REST_URL`
  - `UPSTASH_REDIS_REST_TOKEN`
- - `R2_ACCOUNT_ID` / `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `R2_BUCKET_NAME` / `R2_PUBLIC_BASE_URL`
+ - `R2_ACCOUNT_ID` / `R2_ACCESS_KEY_ID` / `R2_SECRET_ACCESS_KEY` / `R2_BUCKET_NAME` / `R2_PUBLIC_BASE_URL` (see `.env.example` + `docs/GO-LIVE.md`)
  - `CRON_SECRET` (برای cron بک‌آپ / expire / jobs)
  - `RESEND_API_KEY` + `EMAIL_FROM` (تأیید سفارش و هشدار ایمیل؛ دامنهٔ فرستنده را در Resend verify کنید)
  - `NEXT_PUBLIC_ALLOW_INDEX=true` فقط وقتی آمادهٔ ایندکس عمومی هستید (پیش‌فرض robots disallow)

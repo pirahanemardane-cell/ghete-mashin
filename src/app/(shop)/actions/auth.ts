@@ -30,7 +30,7 @@ async function getClientIp(): Promise<string> {
 
 
 function otpEmail(phone: string) {
- return `${onlyDigits(phone)}@phone.ghatehmashin.ir`;
+ return `${onlyDigits(phone)}@phone.ghetemashin.ir`;
 }
 
 async function resolveAuthEmail(loginId: string): Promise<string | null> {
@@ -152,7 +152,6 @@ export async function signUpAction(
           id: userId,
           full_name: fullName ?? null,
           phone: phoneNorm,
-          role: "customer",
         } as never);
         if (fallbackErr) console.error("[signUp profile]", fallbackErr);
       }
@@ -162,7 +161,6 @@ export async function signUpAction(
         id: userId,
         full_name: fullName ?? null,
         phone: phoneNorm,
-        role: "customer",
       } as never);
       if (profileError) console.error("[signUp profile]", profileError);
     }

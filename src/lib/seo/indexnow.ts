@@ -1,6 +1,6 @@
 import { blogPath, productPath } from "@/lib/seo/storefront-paths";
 
-const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "");
 /** کلید ثابت — فایل public/{key}.txt باید در دسترس باشد */
 export const INDEXNOW_KEY =
   process.env.INDEXNOW_KEY?.trim() || "sj-indexnow-8f3a2c1b9e7d4a06";

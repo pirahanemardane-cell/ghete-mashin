@@ -5,7 +5,7 @@ import {
   STOREFRONT_PATHS,
 } from "@/lib/seo/storefront-paths";
 
-const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "");
 
 export function organizationSchema() {
  return {
@@ -141,7 +141,7 @@ export function collectionPageSchema(input: {
  description?: string | null;
  url: string;
 }) {
- const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
+ const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "");
  const url = input.url.startsWith("http") ? input.url : `${SITE}${input.url.startsWith("/") ? "" : "/"}${input.url}`;
  return {
  "@context": "https://schema.org",
@@ -159,7 +159,7 @@ export function brandPageSchema(input: {
  slug: string;
  logo?: string | null;
 }) {
- const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
+ const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "");
  return {
  "@context": "https://schema.org",
  "@type": "Brand",

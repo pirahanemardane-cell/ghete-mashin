@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
+const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghetemashin.ir").replace(/\/$/, "");
 
 export function GET() {
  const body = `# قطعه ماشین
