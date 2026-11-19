@@ -72,8 +72,8 @@ export default function OrderWaybillLabelPage() {
  <div className="border-border space-y-4 rounded-2xl border-2 border-dashed p-6 print:border-black">
  <div className="flex flex-wrap items-start justify-between gap-3 border-b pb-3">
  <div>
- <h1 className="text-xl font-bold">برچسب ارسال — اکسسوری شاد</h1>
- <p className="text-muted-foreground text-xs">shadjewel.ir</p>
+ <h1 className="text-xl font-bold">برچسب ارسال — قطعه ماشین</h1>
+ <p className="text-muted-foreground text-xs">ghatehmashin.ir</p>
  </div>
  <div className="text-left font-mono text-xs" dir="ltr">
  <div>Order: {order.id}</div>

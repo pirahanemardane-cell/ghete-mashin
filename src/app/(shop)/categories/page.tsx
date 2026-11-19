@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CategoryRepository } from "@/repositories/category.repository";
-import { JEWELRY_CATEGORIES } from "@/lib/jewelry-categories";
+import { CAR_PARTS_CATEGORIES } from "@/lib/car-parts-categories";
 import { CategorySvgIcon } from "@/components/home/category-icons";
 import { EmptyBlock } from "@/components/ui/ui-state-blocks";
 import { STOREFRONT_PATHS } from "@/lib/seo/storefront-paths";
@@ -10,7 +10,7 @@ export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "دسته‌ها",
-  description: "دسته‌بندی‌های فروشگاه تخصصی اکسسوری دست ساز",
+  description: "دسته‌بندی قطعات یدکی — موتور، ترمز، برق، بدنه و لوازم مصرفی",
   alternates: { canonical: STOREFRONT_PATHS.categories },
 };
 
@@ -34,7 +34,7 @@ export default async function CategoriesIndexPage() {
   const list =
     cats.length > 0
       ? cats
-      : JEWELRY_CATEGORIES.map((c) => ({
+      : CAR_PARTS_CATEGORIES.map((c) => ({
           id: c.slug,
           name: c.name,
           slug: c.slug,
@@ -47,7 +47,7 @@ export default async function CategoriesIndexPage() {
           دسته‌ها
         </h1>
         <p className="text-muted-foreground mt-1 text-sm">
-          گردنبند، گوشواره، انگشتر، دستبند و بیشتر
+          موتور، ترمز، برق، بدنه، روغن و فیلتر و بیشتر
         </p>
       </div>
 

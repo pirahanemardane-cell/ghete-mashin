@@ -186,19 +186,35 @@ const RULES: {
   test: (s: string) => boolean;
   Icon: (p: IconProps) => ReactElement;
 }[] = [
-  { id: "earring", test: (s) => /گوشواره|earring|ear-?ring/.test(s), Icon: IconEarring },
-  { id: "bracelet", test: (s) => /دستبند|bracelet|bangle/.test(s), Icon: IconBracelet },
-  { id: "ring", test: (s) => /انگشتر|(?<![a-z])rings?(?![a-z])/.test(s), Icon: IconRing },
-  { id: "necklace", test: (s) => /گردنبند|necklace|pendant/.test(s), Icon: IconNecklace },
+  {
+    id: "earring",
+    test: (s) => /برق|الکتریک|electrical|ecu|باتری/.test(s),
+    Icon: IconEarring,
+  },
+  {
+    id: "bracelet",
+    test: (s) => /روغن|فیلتر|oil|filter|روغن-فیلتر/.test(s),
+    Icon: IconBracelet,
+  },
+  {
+    id: "ring",
+    test: (s) => /ترمز|تعلیق|brake|suspension|ترمز-تعلیق/.test(s),
+    Icon: IconRing,
+  },
+  {
+    id: "necklace",
+    test: (s) => /بدنه|شیشه|body|bumpers?|mirror/.test(s),
+    Icon: IconNecklace,
+  },
   {
     id: "set",
     test: (s) =>
-      /(?:^|[\s/_-])ست(?!اره)|(?<![a-z])sets?(?![a-z])|jewelry.?set|ست\s*کامل/.test(s),
+      /لوازم.?مصرفی|consumables?|تعویض.?دوره|سرویس/.test(s),
     Icon: IconJewelrySet,
   },
   {
     id: "default",
-    test: (s) => /اکسسوری|accessory|accessories/.test(s),
+    test: (s) => /موتور|engine|موتوری|گردنبند|گوشواره|اکسسوری/.test(s),
     Icon: IconCategoryDefault,
   },
 ];

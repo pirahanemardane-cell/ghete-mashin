@@ -9,33 +9,34 @@ export type ComplementCard = {
   kind: "buy_with" | "set";
 };
 
-/** Canonical Persian category slug → complementary category slugs (post-067). */
+/** Canonical Persian category slug → complementary category slugs */
 const BUY_WITH_TARGETS: Record<string, string[]> = {
-  گردنبند: ["گوشواره", "دستبند", "انگشتر"],
-  گوشواره: ["گردنبند", "دستبند"],
-  انگشتر: ["دستبند", "گردنبند", "گوشواره"],
-  دستبند: ["انگشتر", "گردنبند", "گوشواره"],
-  ست: ["گردنبند", "گوشواره", "دستبند", "انگشتر"],
-  اکسسوری: ["گردنبند", "گوشواره", "دستبند", "انگشتر"],
+  موتور: ["روغن-فیلتر", "لوازم-مصرفی", "برق"],
+  "ترمز-تعلیق": ["لوازم-مصرفی", "بدنه"],
+  برق: ["موتور", "لوازم-مصرفی"],
+  بدنه: ["ترمز-تعلیق", "لوازم-مصرفی"],
+  "روغن-فیلتر": ["موتور", "لوازم-مصرفی"],
+  "لوازم-مصرفی": ["روغن-فیلتر", "موتور", "برق"],
 };
 
 /** Map legacy English (and FA) category slugs to canonical FA keys. */
 const CATEGORY_CANONICAL: Record<string, string> = {
-  گردنبند: "گردنبند",
-  گوشواره: "گوشواره",
-  انگشتر: "انگشتر",
-  دستبند: "دستبند",
-  ست: "ست",
-  اکسسوری: "اکسسوری",
-  necklace: "گردنبند",
-  earring: "گوشواره",
-  ring: "انگشتر",
-  bracelet: "دستبند",
-  set: "ست",
-  accessory: "اکسسوری",
+  موتور: "موتور",
+  "ترمز-تعلیق": "ترمز-تعلیق",
+  برق: "برق",
+  بدنه: "بدنه",
+  "روغن-فیلتر": "روغن-فیلتر",
+  "لوازم-مصرفی": "لوازم-مصرفی",
+  engine: "موتور",
+  brakes: "ترمز-تعلیق",
+  suspension: "ترمز-تعلیق",
+  electrical: "برق",
+  body: "بدنه",
+  filters: "روغن-فیلتر",
+  consumables: "لوازم-مصرفی",
 };
 
-const SET_CATEGORY_SLUGS = ["ست", "set"] as const;
+const SET_CATEGORY_SLUGS = ["لوازم-مصرفی", "consumables"] as const;
 
 function buyWithTargetsFor(categorySlug: string): string[] {
   const canonical = CATEGORY_CANONICAL[categorySlug] ?? categorySlug;
@@ -166,7 +167,7 @@ export async function getProductComplements(
       }
     }
 
-    // Fallback: products in «ست» category (FA slug after 067; EN kept for legacy DBs)
+    // Fallback: products in «لوازم مصرفی» category (service kits)
     if (sets.length < setLimit) {
       const { data: setCats } = await supabase
         .from("categories")

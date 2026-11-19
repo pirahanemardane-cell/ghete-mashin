@@ -30,7 +30,7 @@ async function getClientIp(): Promise<string> {
 
 
 function otpEmail(phone: string) {
- return `${onlyDigits(phone)}@phone.shadjewel.ir`;
+ return `${onlyDigits(phone)}@phone.ghatehmashin.ir`;
 }
 
 async function resolveAuthEmail(loginId: string): Promise<string | null> {

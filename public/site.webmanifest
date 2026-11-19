@@ -1,7 +1,7 @@
 {
-  "name": "اکسسوری شاد | Shad Jewel",
-  "short_name": "اکسسوری شاد",
-  "description": "فروشگاه اینترنتی اکسسوری شاد — Shad Jewel",
+  "name": "قطعه ماشین | قطعه ماشین",
+  "short_name": "قطعه ماشین",
+  "description": "فروشگاه آنلاین قطعات یدکی خودرو",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#F8F9FA",

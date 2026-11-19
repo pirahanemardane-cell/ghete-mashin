@@ -1,6 +1,6 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const baseURL = process.env.PLAYWRIGHT_BASE_URL || "https://shadjewel.ir";
+const baseURL = process.env.PLAYWRIGHT_BASE_URL || "https://ghatehmashin.ir";
 
 export default defineConfig({
  testDir: "./e2e",

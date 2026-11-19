@@ -6,8 +6,8 @@ import ContactWithGlobe from "@/components/ui/contact-with-globe";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
- title: "تماس با ما | اکسسوری شاد",
- description: "راه‌های ارتباط با فروشگاه تخصصی اکسسوری دست ساز",
+ title: "تماس با ما | قطعه ماشین",
+ description: "راه‌های ارتباط با فروشگاه قطعات یدکی قطعه ماشین",
 };
 
 export default async function ContactPage() {

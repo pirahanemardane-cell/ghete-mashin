@@ -5,7 +5,7 @@ import { LegalView } from "@/components/content/legal-view";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "ضمانت و اصالت | اکسسوری شاد",
+  title: "ضمانت و اصالت | قطعه ماشین",
   description: "ضمانت کیفیت، اصالت مشخصات و نشان ضد حساسیت",
 };
 

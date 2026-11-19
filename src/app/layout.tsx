@@ -9,30 +9,30 @@ import { organizationSchema, websiteSchema } from "@/lib/seo/schema";
 import { isSiteIndexable } from "@/lib/seo/indexing";
 import { WebVitalsReporter } from "@/components/performance/web-vitals-reporter";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://shadjewel.ir";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir";
 
 export const metadata: Metadata = {
  metadataBase: new URL(siteUrl),
  title: {
- default: "اکسسوری شاد | فروشگاه تخصصی اکسسوری دست ساز",
- template: "%s | اکسسوری شاد",
+ default: "قطعه ماشین | فروشگاه قطعات یدکی خودرو",
+ template: "%s | قطعه ماشین",
  },
  description:
- "فروشگاه تخصصی اکسسوری دست ساز — گردنبند، اسپرت، دستبند، ست و اکسسوری اکسسوری دست ساز",
- applicationName: "اکسسوری شاد",
- authors: [{ name: "اکسسوری شاد" }],
+ "فروشگاه آنلاین قطعات یدکی خودرو — موتور، ترمز، تعلیق، برق، بدنه و روغن و فیلتر با فیلتر برند و مدل",
+ applicationName: "قطعه ماشین",
+ authors: [{ name: "قطعه ماشین" }],
  generator: "Next.js",
  keywords: [
- "اکسسوری شاد",
- "گردنبند",
- "گوشواره",
- "دستبند",
- "ست",
- "اکسسوری",
+ "قطعه ماشین",
+ "قطعات یدکی",
+ "لوازم خودرو",
+ "قطعه موتور",
+ "فیلتر روغن",
+ "یدکی",
  ],
  manifest: "/site.webmanifest",
  appleWebApp: {
- title: "اکسسوری شاد",
+ title: "قطعه ماشین",
  },
  icons: {
  icon: [
@@ -46,24 +46,24 @@ export const metadata: Metadata = {
  type: "website",
  locale: "fa_IR",
  url: siteUrl,
- siteName: "اکسسوری شاد",
- title: "اکسسوری شاد | فروشگاه تخصصی اکسسوری دست ساز",
+ siteName: "قطعه ماشین",
+ title: "قطعه ماشین | فروشگاه قطعات یدکی خودرو",
  description:
- "فروشگاه تخصصی اکسسوری دست ساز — گردنبند، اسپرت، دستبند، ست و اکسسوری",
+ "فروشگاه آنلاین قطعات یدکی خودرو — موتور، ترمز، تعلیق، برق، بدنه و روغن و فیلتر",
  images: [
  {
  url: "/og-image.webp",
  width: 1200,
  height: 630,
- alt: "Shad Jewel — اکسسوری شاد",
+ alt: "قطعه ماشین — قطعه ماشین",
  },
  ],
  },
  twitter: {
  card: "summary_large_image",
- title: "اکسسوری شاد | فروشگاه تخصصی اکسسوری دست ساز",
+ title: "قطعه ماشین | فروشگاه قطعات یدکی خودرو",
  description:
- "فروشگاه تخصصی اکسسوری دست ساز — گردنبند، اسپرت، دستبند، ست و اکسسوری",
+ "فروشگاه آنلاین قطعات یدکی خودرو — موتور، ترمز، تعلیق، برق، بدنه و روغن و فیلتر",
  images: ["/og-image.webp"],
  },
  robots: isSiteIndexable()
@@ -128,8 +128,8 @@ export default function RootLayout({
  <link rel="icon" href="/icon.svg" type="image/svg+xml" />
  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
  <link rel="manifest" href="/site.webmanifest" />
- <meta name="apple-mobile-web-app-title" content="اکسسوری شاد" />
- <meta name="application-name" content="اکسسوری شاد" />
+ <meta name="apple-mobile-web-app-title" content="قطعه ماشین" />
+ <meta name="application-name" content="قطعه ماشین" />
  <meta name="theme-color" content="#f08080" />
  </head>
  <body className="min-h-screen font-sans antialiased max-w-full" suppressHydrationWarning>

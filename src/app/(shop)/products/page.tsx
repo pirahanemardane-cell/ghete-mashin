@@ -24,7 +24,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
  return metadataFromSeoPage("shop_plp", {
  title: "محصولات",
- description: "لیست محصولات فروشگاه تخصصی اکسسوری دست ساز",
+ description: "لیست قطعات یدکی با فیلتر برند، مدل و سال خودرو",
  });
 }
 

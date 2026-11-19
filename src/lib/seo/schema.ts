@@ -5,14 +5,14 @@ import {
   STOREFRONT_PATHS,
 } from "@/lib/seo/storefront-paths";
 
-const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://shadjewel.ir").replace(/\/$/, "");
+const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
 
 export function organizationSchema() {
  return {
  "@context": "https://schema.org",
  "@type": "Organization",
  "@id": `${SITE}/#organization`,
- name: "اکسسوری شاد",
+ name: "قطعه ماشین",
  url: SITE,
  logo: {
  "@type": "ImageObject",
@@ -28,7 +28,7 @@ export function websiteSchema() {
  "@type": "WebSite",
  "@id": `${SITE}/#website`,
  url: SITE,
- name: "اکسسوری شاد",
+ name: "قطعه ماشین",
  inLanguage: "fa-IR",
  publisher: { "@id": `${SITE}/#organization` },
  potentialAction: {
@@ -118,11 +118,11 @@ export function articleSchema(input: {
  dateModified: input.dateModified || input.datePublished || undefined,
  author: {
  "@type": "Person",
- name: input.authorName || "اکسسوری شاد",
+ name: input.authorName || "قطعه ماشین",
  },
  publisher: {
  "@type": "Organization",
- name: "اکسسوری شاد",
+ name: "قطعه ماشین",
  logo: {
  "@type": "ImageObject",
  url: `${SITE}/brand/logo-light-transparent.png`,
@@ -141,7 +141,7 @@ export function collectionPageSchema(input: {
  description?: string | null;
  url: string;
 }) {
- const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://shadjewel.ir").replace(/\/$/, "");
+ const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
  const url = input.url.startsWith("http") ? input.url : `${SITE}${input.url.startsWith("/") ? "" : "/"}${input.url}`;
  return {
  "@context": "https://schema.org",
@@ -159,7 +159,7 @@ export function brandPageSchema(input: {
  slug: string;
  logo?: string | null;
 }) {
- const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://shadjewel.ir").replace(/\/$/, "");
+ const SITE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
  return {
  "@context": "https://schema.org",
  "@type": "Brand",

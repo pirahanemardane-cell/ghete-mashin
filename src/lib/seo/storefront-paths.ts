@@ -190,14 +190,16 @@ export function locationHref(pathWithOptionalQuery: string): string {
   return encodeURI(pathWithOptionalQuery);
 }
 
-/** Default jewelry category slugs (Persian). Icon map still matches by name/slug text. */
+/** Default auto-parts category slugs (Persian). Icon map still matches by name/slug text. */
 export const CATEGORY_SLUG_EN_TO_FA: Record<string, string> = {
-  necklace: "گردنبند",
-  earring: "گوشواره",
-  ring: "انگشتر",
-  bracelet: "دستبند",
-  set: "ست",
-  accessory: "اکسسوری",
+  engine: "موتور",
+  brakes: "ترمز-تعلیق",
+  suspension: "ترمز-تعلیق",
+  electrical: "برق",
+  body: "بدنه",
+  filters: "روغن-فیلتر",
+  "oil-filters": "روغن-فیلتر",
+  consumables: "لوازم-مصرفی",
 };
 
 export const CATEGORY_SLUG_FA_TO_EN: Record<string, string> = Object.fromEntries(

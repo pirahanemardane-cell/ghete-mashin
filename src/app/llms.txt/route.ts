@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 
-const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://shadjewel.ir").replace(/\/$/, "");
+const site = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
 
 export function GET() {
- const body = `# اکسسوری شاد
-> فروشگاه تخصصی اکسسوری دست ساز، دستبند، ست و اکسسوری
+ const body = `# قطعه ماشین
+> فروشگاه آنلاین قطعات یدکی خودرو — موتور، ترمز، برق، بدنه و لوازم مصرفی
 
 ## صفحات اصلی
 - [خانه](${site}/)

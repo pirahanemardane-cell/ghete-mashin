@@ -12,7 +12,7 @@ import { getFlashSaleEndsAtAction } from "@/app/admin/actions/flash-sale";
 import { OrderTrackBox } from "@/components/home/order-track-box";
 import { CarouselLinks } from "@/components/ui/carousel-cards";
 import { ProductCarousel } from "@/components/ui/product-carousel";
-import { JEWELRY_CATEGORIES } from "@/lib/jewelry-categories";
+import { CAR_PARTS_CATEGORIES } from "@/lib/car-parts-categories";
 import type { ProductWithRelations } from "@/repositories/product.repository";
 
 const HOME_BRAND_SLIDES: { id: string; label: string; href: string; imageUrl: string }[] = [];
@@ -159,7 +159,7 @@ export async function HomeBelowFold() {
                 href: "/" + encodeURIComponent(cat.slug),
                 imageUrl: (cat as { image_url?: string | null }).image_url ?? null,
               }))
-            : JEWELRY_CATEGORIES.map((cat) => ({
+            : CAR_PARTS_CATEGORIES.map((cat) => ({
                 id: cat.slug,
                 label: cat.name,
                 href: "/" + encodeURIComponent(cat.slug),

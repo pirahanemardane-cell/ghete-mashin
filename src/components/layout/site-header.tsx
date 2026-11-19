@@ -73,7 +73,7 @@ import { CategorySvgIcon } from "@/components/home/category-icons"; const MAIN_N
  <div className="mb-4 flex items-center justify-between gap-3">
  <div>
  <p className="text-sm font-bold">دسته‌بندی‌ها</p>
- <p className="text-muted-foreground text-xs">گردنبند، گوشواره، انگشتر و دستبند</p>
+ <p className="text-muted-foreground text-xs">موتور، ترمز، برق، بدنه و لوازم مصرفی</p>
  </div>
  <Link
  href="/محصولات"

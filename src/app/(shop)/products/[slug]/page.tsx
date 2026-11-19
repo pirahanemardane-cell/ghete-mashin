@@ -100,7 +100,7 @@ export default async function ProductDetailPage({ params }: Props) {
  }
 
  const product = result.data;
- const siteBase = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://shadjewel.ir").replace(/\/$/, "");
+ const siteBase = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ghatehmashin.ir").replace(/\/$/, "");
  const sizeGuide = await loadSizeGuideForProduct({
  sizeGuideId: (product as { size_guide_id?: string | null }).size_guide_id,
  categoryId: (product as { category_id?: string | null }).category_id,

@@ -29,7 +29,7 @@ describe("csrf-origin", () => {
  const r = assertApiCsrf({
  method: "POST",
  pathname: "/api/contact",
- origin: "https://shadjewel.ir",
+ origin: "https://ghatehmashin.ir",
  referer: null,
  secFetchSite: "same-origin",
  });

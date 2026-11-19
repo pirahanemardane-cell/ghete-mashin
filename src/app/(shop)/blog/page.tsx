@@ -8,7 +8,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
  return metadataFromSeoPage("blog_plp", {
  title: "بلاگ",
- description: "مقالات فروشگاه اکسسوری شاد",
+ description: "مقالات فروشگاه قطعه ماشین",
  });
 }
 

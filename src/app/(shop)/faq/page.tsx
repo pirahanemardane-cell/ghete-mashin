@@ -7,7 +7,7 @@ import { FaqView } from "@/components/content/faq-view";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
- title: "سوالات متداول | اکسسوری شاد",
+ title: "سوالات متداول | قطعه ماشین",
  description: "پاسخ به سوالات رایج درباره سفارش، سایز، ارسال و مرجوعی",
 };
 

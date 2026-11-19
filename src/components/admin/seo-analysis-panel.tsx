@@ -44,7 +44,7 @@ export type SeoAnalysisPanelProps = {
  onChange: (next: SeoPanelValue) => void;
 };
 
-const DEFAULT_SITE = "اکسسوری شاد";
+const DEFAULT_SITE = "قطعه ماشین";
 
 function scoreColor(score: number): string {
  if (score >= 75) return "text-green-600 dark:text-green-400";
@@ -72,7 +72,7 @@ export function SeoAnalysisPanel({
  body = "",
  imageUrl = "",
  siteName = DEFAULT_SITE,
- siteUrl = "https://shadjewel.ir",
+ siteUrl = "https://ghatehmashin.ir",
  forceNoindex = false,
  value,
  onChange,

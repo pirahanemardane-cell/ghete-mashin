@@ -1,5 +1,5 @@
 /**
- * Database types for اکسسوری شاد
+ * Database types for قطعه ماشین
  * Generated manually to match production schema
  * Keep in sync with supabase/migrations
  */

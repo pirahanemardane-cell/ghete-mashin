@@ -7,35 +7,35 @@ import PolaroidLineCarousel from "@/components/ui/polaroid-line-carousel";
 export const revalidate = 60;
 
 export const metadata: Metadata = {
-  title: "اکسسوری شاد | فروشگاه تخصصی اکسسوری دست ساز",
+  title: "قطعه ماشین | فروشگاه قطعات یدکی خودرو",
   description:
-    "خرید گردنبند، گوشواره، انگشتر، دستبند و ست‌های اکسسوری دست ساز از فروشگاه تخصصی اکسسوری دست ساز",
+    "خرید قطعات یدکی موتور، ترمز، تعلیق، برق، بدنه و روغن و فیلتر با فیلتر برند و مدل خودرو",
 };
 
 const HERO_SLIDES = [
   {
     image: "/hero/polaroid-earring.webp",
-    alt: "گوشواره دست‌ساز",
+    alt: "قطعات برق و الکتریک خودرو",
   },
   {
     image: "/hero/polaroid-01.webp",
-    alt: "اکسسوری دست‌ساز",
+    alt: "قطعات یدکی خودرو",
   },
   {
     image: "/hero/polaroid-02.webp",
-    alt: "جواهرات دست‌ساز",
+    alt: "لوازم موتور و گیربکس",
   },
   {
     image: "/hero/polaroid-03.webp",
-    alt: "گردنبند دست‌ساز",
+    alt: "لوازم بدنه و شیشه",
   },
   {
     image: "/hero/polaroid-04.webp",
-    alt: "دستبند دست‌ساز",
+    alt: "قطعات ترمز و تعلیق",
   },
   {
     image: "/hero/polaroid-05.webp",
-    alt: "انگشتر دست‌ساز",
+    alt: "فیلتر و روغن موتور",
   },
 ] as const;
 

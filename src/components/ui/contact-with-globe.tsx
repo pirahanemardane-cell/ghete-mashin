@@ -17,13 +17,13 @@ const smoothEase = [0.25, 0.1, 0.25, 1] as const;
 const CONTACT_LINKS = [
  {
  icon: Mail,
- label: "info@shadjewel.ir",
- href: "mailto:info@shadjewel.ir",
+ label: "info@ghatehmashin.ir",
+ href: "mailto:info@ghatehmashin.ir",
  },
  {
  icon: Headphones,
  label: "پشتیبانی سفارش و مرجوعی",
- href: "mailto:info@shadjewel.ir",
+ href: "mailto:info@ghatehmashin.ir",
  },
  {
  icon: Clock,

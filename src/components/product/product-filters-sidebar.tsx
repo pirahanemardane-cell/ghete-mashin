@@ -6,10 +6,10 @@ import { cn } from "@/lib/utils";
 import type { AttributeWithOptions } from "@/repositories/attribute.repository";
 import { Check } from "lucide-react";
 import { PriceRangeSlider06 } from "@/components/ui/price-range-slider-06";
-import { JEWELRY_CATEGORIES } from "@/lib/jewelry-categories";
+import { CAR_PARTS_CATEGORIES } from "@/lib/car-parts-categories";
 import {
   MATERIAL_FACET_SLUGS,
-  filterJewelrySizeChips,
+  filterPartSizeChips,
 } from "@/lib/facet-map";
 import { productsHref } from "@/lib/seo/storefront-paths";
 
@@ -34,7 +34,7 @@ type Props = {
   forceVisible?: boolean;
 };
 
-const DEFAULT_JEWELRY_CATEGORIES: CategoryChip[] = JEWELRY_CATEGORIES.map(
+const DEFAULT_PART_CATEGORIES: CategoryChip[] = CAR_PARTS_CATEGORIES.map(
   ({ name, slug }) => ({ name, slug }),
 );
 
@@ -252,10 +252,10 @@ export function ProductFiltersSidebar(props: Props) {
     forceVisible,
   } = props;
   const categories =
-    categoriesProp.length > 0 ? categoriesProp : DEFAULT_JEWELRY_CATEGORIES;
+    categoriesProp.length > 0 ? categoriesProp : DEFAULT_PART_CATEGORIES;
 
   const sizes = useMemo(
-    () => filterJewelrySizeChips(props.sizes ?? []),
+    () => filterPartSizeChips(props.sizes ?? []),
     [props.sizes],
   );
 
@@ -527,7 +527,7 @@ export function ProductFiltersSidebar(props: Props) {
 
         {sizes.length > 0 ? (
           <div>
-            <p className="mb-2 text-xs font-medium">سایز (انگشتر / دستبند)</p>
+            <p className="mb-2 text-xs font-medium">سایز / ابعاد قطعه</p>
             <ul className="space-y-0.5">
               {sizes.map((s) => {
                 const server = props.sizeSlug === s.slug;

@@ -7,7 +7,7 @@ export function SizeGuideSnippet(_props: { guide?: unknown }) {
         href="/راهنمای-سایز"
         className="text-primary font-medium underline-offset-4 hover:underline"
       >
-        راهنمای سایز انگشتر، گردنبند و دستبند
+        راهنمای انتخاب قطعه متناسب با خودرو
       </Link>
     </p>
   );

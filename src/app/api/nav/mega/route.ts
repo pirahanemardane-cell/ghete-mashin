@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { CategoryRepository } from "@/repositories/category.repository";
 import { BrandService } from "@/services/brand.service";
-import { JEWELRY_CATEGORIES } from "@/lib/jewelry-categories";
+import { CAR_PARTS_CATEGORIES } from "@/lib/car-parts-categories";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 30;
@@ -44,7 +44,7 @@ export async function GET() {
                   href: "/" + encodeURIComponent(c.slug),
                 })),
             }))
-          : JEWELRY_CATEGORIES.map((c) => ({
+          : CAR_PARTS_CATEGORIES.map((c) => ({
               name: c.name,
               slug: c.slug,
               href: "/" + encodeURIComponent(c.slug),

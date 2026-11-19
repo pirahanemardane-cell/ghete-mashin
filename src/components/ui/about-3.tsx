@@ -22,31 +22,31 @@ interface About3Props {
 }
 
 const defaultAchievements = [
- { label: "تمرکز تخصصی", value: "اکسسوری دست‌ساز" },
- { label: "ساخت", value: "دست‌ساز" },
- { label: "مرجوعی", value: "آسان" },
+ { label: "تمرکز تخصصی", value: "قطعات یدکی" },
+ { label: "سازگاری", value: "برند و مدل" },
+ { label: "مرجوعی", value: "شفاف" },
  { label: "پشتیبانی", value: "واقعی" },
 ];
 
 export function About3({
  title = "درباره ما",
- description = "اکسسوری شاد؛ فروشگاه تخصصی اکسسوری دست‌ساز — گردنبند، گوشواره، انگشتر، دستبند و ست.",
+ description = "قطعه ماشین؛ فروشگاه آنلاین قطعات یدکی — موتور، ترمز، تعلیق، برق، بدنه و لوازم مصرفی.",
  // Unused in layout today; kept optional for callers. No stock/demo URLs.
  mainImage,
  secondaryImage,
  breakout = {
  src: "",
- alt: "اکسسوری شاد",
- title: "اکسسوری دست‌ساز",
+ alt: "قطعه ماشین",
+ title: "قطعات یدکی باکیفیت",
  description:
- "طراحی تمیز، مواد باکیفیت و پشتیبانی واقعی پس از خرید.",
+ "سازگاری دقیق با خودرو، مشخصات شفاف و پشتیبانی واقعی پس از خرید.",
  buttonText: "مشاهده محصولات",
  buttonUrl: "/محصولات",
  },
  companiesTitle = "تمرکز ما",
  companies = [],
  achievementsTitle = "آنچه برای خریدار مهم است",
- achievementsDescription = "اکسسوری دست‌ساز، راهنمای سایز شفاف، ارسال مطمئن و پشتیبانی واقعی.",
+ achievementsDescription = "قطعات یدکی، راهنمای سازگاری شفاف، ارسال مطمئن و پشتیبانی واقعی.",
  achievements = defaultAchievements,
 }: About3Props = {}) {
  void mainImage;
@@ -71,7 +71,7 @@ export function About3({
  <p className="text-foreground mb-3 text-lg font-semibold">
  {breakout.title}
  </p>
- <div className="mb-3" aria-label={breakout.alt || "اکسسوری شاد"}>
+ <div className="mb-3" aria-label={breakout.alt || "قطعه ماشین"}>
  <Logo size="lg" className="pointer-events-none" />
  </div>
  {breakout.description ? (
@@ -108,7 +108,7 @@ export function About3({
  <div className="py-16 text-center">
  <p className="text-muted-foreground text-sm">{companiesTitle}</p>
  <p className="text-secondary mt-2 text-lg font-medium">
- اکسسوری دست‌ساز · گردنبند · گوشواره · انگشتر · دستبند
+ قطعات یدکی · موتور · ترمز · برق · بدنه · روغن و فیلتر
  </p>
  </div>
  )}

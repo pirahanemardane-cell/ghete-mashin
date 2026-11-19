@@ -1,57 +1,58 @@
 import { describe, expect, it } from "vitest";
 import {
-  APPAREL_ATTR_BLOCKLIST,
-  filterJewelryFacets,
-  filterJewelrySizeChips,
-  isAllowedJewelryAttrSlug,
+  LEGACY_ATTR_BLOCKLIST,
+  filterCarPartsFacets,
+  filterPartSizeChips,
+  isAllowedCarPartsAttrSlug,
   isApparelAttrSlug,
   parseAttrFacetsFromParams,
   parseInStockParam,
 } from "@/lib/facet-map";
 
-describe("facet-map jewelry standards", () => {
-  it("blocks apparel leftover attribute slugs", () => {
-    for (const slug of APPAREL_ATTR_BLOCKLIST) {
+describe("facet-map car-parts standards", () => {
+  it("blocks legacy jewelry/apparel attribute slugs", () => {
+    for (const slug of LEGACY_ATTR_BLOCKLIST) {
       expect(isApparelAttrSlug(slug)).toBe(true);
-      expect(isAllowedJewelryAttrSlug(slug)).toBe(false);
+      expect(isAllowedCarPartsAttrSlug(slug)).toBe(false);
     }
   });
 
-  it("allows jewelry material / metal / ring-size facets", () => {
-    expect(isAllowedJewelryAttrSlug("material")).toBe(true);
-    expect(isAllowedJewelryAttrSlug("metal")).toBe(true);
-    expect(isAllowedJewelryAttrSlug("ring-size")).toBe(true);
-    expect(isAllowedJewelryAttrSlug("necklace-length")).toBe(true);
+  it("allows vehicle fitment and part metadata facets", () => {
+    expect(isAllowedCarPartsAttrSlug("vehicle-brand")).toBe(true);
+    expect(isAllowedCarPartsAttrSlug("vehicle-model")).toBe(true);
+    expect(isAllowedCarPartsAttrSlug("vehicle-year")).toBe(true);
+    expect(isAllowedCarPartsAttrSlug("part-origin")).toBe(true);
+    expect(isAllowedCarPartsAttrSlug("part-condition")).toBe(true);
   });
 
-  it("filters facets by jewelry category", () => {
+  it("filters facets by parts category", () => {
     const facets = [
       { slug: "fabric" },
-      { slug: "material" },
-      { slug: "ring-size" },
-      { slug: "fit" },
-      { slug: "necklace-length" },
+      { slug: "vehicle-brand" },
+      { slug: "vehicle-model" },
+      { slug: "viscosity" },
+      { slug: "metal" },
+      { slug: "position" },
     ];
-    const ring = filterJewelryFacets(facets, "ring").map((f) => f.slug);
-    expect(ring).toContain("material");
-    expect(ring).toContain("ring-size");
-    expect(ring).not.toContain("fabric");
-    expect(ring).not.toContain("fit");
-    expect(ring).not.toContain("necklace-length");
+    const brakes = filterCarPartsFacets(facets, "ترمز-تعلیق").map((f) => f.slug);
+    expect(brakes).toContain("vehicle-brand");
+    expect(brakes).toContain("position");
+    expect(brakes).not.toContain("fabric");
+    expect(brakes).not.toContain("metal");
+    expect(brakes).not.toContain("viscosity");
 
-    const ringFa = filterJewelryFacets(facets, "انگشتر").map((f) => f.slug);
-    expect(ringFa).toContain("ring-size");
-    expect(ringFa).not.toContain("necklace-length");
+    const oil = filterCarPartsFacets(facets, "روغن-فیلتر").map((f) => f.slug);
+    expect(oil).toContain("viscosity");
+    expect(oil).not.toContain("position");
 
-    const all = filterJewelryFacets(facets).map((f) => f.slug);
-    expect(all).toContain("material");
-    expect(all).toContain("ring-size");
-    expect(all).toContain("necklace-length");
+    const all = filterCarPartsFacets(facets).map((f) => f.slug);
+    expect(all).toContain("vehicle-brand");
+    expect(all).toContain("vehicle-model");
     expect(all).not.toContain("fabric");
   });
 
   it("drops apparel letter sizes from chips", () => {
-    const sizes = filterJewelrySizeChips([
+    const sizes = filterPartSizeChips([
       { slug: "m", name: "M" },
       { slug: "54", name: "۵۴" },
       { slug: "xl", name: "XL" },
@@ -60,14 +61,14 @@ describe("facet-map jewelry standards", () => {
     expect(sizes.map((s) => s.slug)).toEqual(["54", "58"]);
   });
 
-  it("parses jewelry attr + inStock URL params", () => {
+  it("parses parts attr + inStock URL params", () => {
     expect(
       parseAttrFacetsFromParams({
-        material: "gold",
+        "vehicle-brand": "peugeot",
         fabric: "cotton",
-        "ring-size": "54",
+        "vehicle-year": "1400",
       }),
-    ).toEqual({ material: "gold", "ring-size": "54" });
+    ).toEqual({ "vehicle-brand": "peugeot", "vehicle-year": "1400" });
     expect(parseInStockParam("1")).toBe(true);
     expect(parseInStockParam("0")).toBeUndefined();
   });

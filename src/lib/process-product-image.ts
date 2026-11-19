@@ -14,7 +14,7 @@ const WATERMARK_FILE = "logo-light-transparent.webp";
 const WATERMARK_PUBLIC_URL =
  process.env.NEXT_PUBLIC_SITE_URL
  ? `${process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "")}/brand/${WATERMARK_FILE}`
- : `https://shadjewel.ir/brand/${WATERMARK_FILE}`;
+ : `https://ghatehmashin.ir/brand/${WATERMARK_FILE}`;
 
 export const PRODUCT_IMAGE_SIZES = {
  thumb: 320,

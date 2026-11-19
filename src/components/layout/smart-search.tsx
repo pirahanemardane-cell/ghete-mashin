@@ -672,7 +672,7 @@ export function SmartSearch({ className }: { className?: string }) {
  {facetSizes.length > 0 ? (
  <div>
  <p className="text-muted-foreground mb-1.5 text-xs font-medium">
- سایز (انگشتر / دستبند)
+ سایز / ابعاد قطعه
  </p>
  <div className="flex flex-wrap gap-2">
  {facetSizes.map((s) => (

@@ -14,7 +14,7 @@ export type SeoTemplateContext = {
  year?: string | number;
 };
 
-const DEFAULT_SITE = "اکسسوری شاد";
+const DEFAULT_SITE = "قطعه ماشین";
 
 export function applySeoTemplate(
  template: string | null | undefined,

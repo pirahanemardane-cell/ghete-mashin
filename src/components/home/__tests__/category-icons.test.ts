@@ -2,38 +2,34 @@ import { describe, expect, it } from "vitest";
 import { resolveCategoryIconId } from "@/components/home/category-icons";
 
 describe("resolveCategoryIconId", () => {
-  it("maps Persian jewelry category names", () => {
-    expect(resolveCategoryIconId("گردنبند", "گردنبند")).toBe("necklace");
-    expect(resolveCategoryIconId("گوشواره", "گوشواره")).toBe("earring");
-    expect(resolveCategoryIconId("انگشتر", "انگشتر")).toBe("ring");
-    expect(resolveCategoryIconId("دستبند", "دستبند")).toBe("bracelet");
-    expect(resolveCategoryIconId("ست", "ست")).toBe("set");
+  it("maps Persian auto-parts category names", () => {
+    expect(resolveCategoryIconId("موتور و قطعات موتوری", "موتور")).toBe(
+      "default",
+    );
+    expect(resolveCategoryIconId("ترمز و تعلیق", "ترمز-تعلیق")).toBe("ring");
+    expect(resolveCategoryIconId("برق و الکتریک", "برق")).toBe("earring");
+    expect(resolveCategoryIconId("بدنه و شیشه", "بدنه")).toBe("necklace");
+    expect(resolveCategoryIconId("روغن و فیلتر", "روغن-فیلتر")).toBe("bracelet");
+    expect(resolveCategoryIconId("لوازم مصرفی", "لوازم-مصرفی")).toBe("set");
   });
 
-  it("maps English and Persian slugs from href-style paths", () => {
-    expect(resolveCategoryIconId(null, "/necklace")).toBe("necklace");
-    expect(resolveCategoryIconId(null, "/گردنبند")).toBe("necklace");
-    expect(resolveCategoryIconId(null, "/earring")).toBe("earring");
-    expect(resolveCategoryIconId(null, "/گوشواره")).toBe("earring");
-    expect(resolveCategoryIconId(null, "/ring")).toBe("ring");
-    expect(resolveCategoryIconId(null, "/انگشتر")).toBe("ring");
-    expect(resolveCategoryIconId(null, "/bracelet")).toBe("bracelet");
-    expect(resolveCategoryIconId(null, "/set")).toBe("set");
+  it("maps English slugs from href-style paths", () => {
+    expect(resolveCategoryIconId(null, "/engine")).toBe("default");
+    expect(resolveCategoryIconId(null, "/موتور")).toBe("default");
+    expect(resolveCategoryIconId(null, "/brakes")).toBe("ring");
+    expect(resolveCategoryIconId(null, "/electrical")).toBe("earring");
+    expect(resolveCategoryIconId(null, "/body")).toBe("necklace");
+    expect(resolveCategoryIconId(null, "/filters")).toBe("bracelet");
+    expect(resolveCategoryIconId(null, "/consumables")).toBe("set");
   });
 
-  it("does not confuse earring with ring", () => {
-    expect(resolveCategoryIconId("گوشواره", "گوشواره")).toBe("earring");
-    expect(resolveCategoryIconId(null, "/ear-ring")).toBe("earring");
-  });
-
-  it("falls back to gem default", () => {
+  it("falls back to default for misc", () => {
     expect(resolveCategoryIconId("متفرقه", "misc")).toBe("default");
-    expect(resolveCategoryIconId("اکسسوری", "اکسسوری")).toBe("default");
   });
 
-  it("maps all JEWELRY_CATEGORIES slugs to expected icons", async () => {
-    const { JEWELRY_CATEGORIES } = await import("@/lib/jewelry-categories");
-    for (const cat of JEWELRY_CATEGORIES) {
+  it("maps all CAR_PARTS_CATEGORIES slugs to expected icons", async () => {
+    const { CAR_PARTS_CATEGORIES } = await import("@/lib/car-parts-categories");
+    for (const cat of CAR_PARTS_CATEGORIES) {
       expect(resolveCategoryIconId(cat.name, cat.slug)).toBe(cat.icon);
     }
   });

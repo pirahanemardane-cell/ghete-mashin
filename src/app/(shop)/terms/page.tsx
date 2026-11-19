@@ -5,8 +5,8 @@ import { LegalView } from "@/components/content/legal-view";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
- title: "شرایط استفاده | اکسسوری شاد",
- description: "شرایط و قوانین استفاده از فروشگاه اکسسوری شاد",
+ title: "شرایط استفاده | قطعه ماشین",
+ description: "شرایط و قوانین استفاده از فروشگاه قطعه ماشین",
 };
 
 export default async function TermsPage() {
