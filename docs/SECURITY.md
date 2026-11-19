@@ -9,6 +9,8 @@
 - بک‌آپ روزانه: `/api/cron/backup` → R2 (نیاز به `CRON_SECRET`)
 - ایمیل تراکنشی Resend (تأیید سفارش / هشدارها) — fail-soft بدون `RESEND_API_KEY`
 - RLS hardening: `supabase/migrations/030_rls_hardening.sql`
+- Profile privilege guard: `supabase/migrations/069_protect_profile_role.sql` (blocks self-service `role` / `is_active` changes; service_role only)
+- Profile self-update sanitizer: rejects privileged fields server-side (`src/lib/security/profile-self-update.ts`)
 - Gitleaks secret scanning
 - Edge cache برای APIهای عمومی
 - Region: Vercel `fra1` (نزدیک به کاربر ایران/اروپا)
@@ -16,7 +18,7 @@
 
 ## کارهای دستی (یک‌بار — حتماً انجام بده)
 
-1. در **Supabase → SQL Editor** محتوای فایل `supabase/migrations/030_rls_hardening.sql` را اجرا کنید.
+1. در **Supabase → SQL Editor** محتوای `supabase/migrations/030_rls_hardening.sql` و **`069_protect_profile_role.sql`** را اجرا کنید (جلوگیری از ارتقای نقش توسط کاربر لاگین‌شده).
 2. در **Supabase → Authentication → URL Configuration** دامنه `https://shadjewel.ir` را مجاز کنید.
 3. متغیرهای زیر را فقط در **Vercel → Settings → Environment Variables** (server-side) بگذارید:
  - `SUPABASE_SERVICE_ROLE_KEY`

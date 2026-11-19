@@ -907,22 +907,30 @@ export async function getMyProfileAction() {
  }
 }
 
-export async function updateMyProfileAction(input: {
- full_name?: string;
- phone?: string;
-}) {
+export async function updateMyProfileAction(input: unknown) {
  try {
  const user = await requireUser();
  if (!user) return { ok: false as const, error: "login_required" };
+
+ const { sanitizeProfileSelfUpdate } = await import(
+ "@/lib/security/profile-self-update"
+ );
+ const sanitized = sanitizeProfileSelfUpdate(input);
+ if (!sanitized.ok) {
+ return { ok: false as const, error: sanitized.error };
+ }
+
  const supabase = await createClient();
  const patch: Record<string, string | null> = {};
- if (typeof input.full_name === "string") {
- const nameOk = assertNoLinkOrImage(input.full_name, "نام");
+ if (typeof sanitized.patch.full_name === "string") {
+ const nameOk = assertNoLinkOrImage(sanitized.patch.full_name, "نام");
  if (!nameOk.ok) return { ok: false as const, error: nameOk.error };
  patch.full_name = nameOk.text || null;
+ } else if (sanitized.patch.full_name === null) {
+ patch.full_name = null;
  }
- if (typeof input.phone === "string") {
- const raw = input.phone.trim().replace(/\s/g, "");
+ if (typeof sanitized.patch.phone === "string") {
+ const raw = sanitized.patch.phone.trim().replace(/\s/g, "");
  if (!raw) {
  patch.phone = null;
  } else {
@@ -934,24 +942,23 @@ export async function updateMyProfileAction(input: {
  if (!phoneOk.ok) return { ok: false as const, error: phoneOk.error };
  patch.phone = phoneOk.text || null;
  }
+ } else if (sanitized.patch.phone === null) {
+ patch.phone = null;
  }
  if (!Object.keys(patch).length) {
  return { ok: false as const, error: "nothing_to_update" };
  }
+
+ // Never write role/is_active here — privileged columns are DB-guarded + stripped above.
  const { data: updated, error } = await supabase
  .from("profiles")
- .upsert(
- {
- id: user.id,
- ...patch,
- role: "customer",
- } as never,
- { onConflict: "id" },
- )
+ .update(patch as never)
+ .eq("id", user.id)
  .select("id")
  .maybeSingle();
  if (error) throw error;
  if (!updated) {
+ // Profile row missing: create customer row only (service role; trigger still forces customer for non-service)
  try {
  const { createServiceClient } = await import("@/lib/supabase/service");
  const service = createServiceClient();
